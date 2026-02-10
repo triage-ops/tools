@@ -290,8 +290,8 @@ sudo apt update && sudo apt install -y \
     file binutils xxd curl jq hashcat python3 \
     libimage-exiftool-perl binwalk steghide pngcheck \
     sox libsox-fmt-all ffmpeg imagemagick zbar-tools \
-    checksec ripgrep libcap2-bin foremos python3-pip \
-    git xclip bc outguess stegsnow
+    checksec ripgrep libcap2-bin python3-pip \
+    git xclip bc stegsnow
 ```
 ```
 sudo gem install zsteg
