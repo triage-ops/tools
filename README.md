@@ -282,3 +282,20 @@ pip3 install requests
 
 #=== Supporting Files ===
 *   `exploits.db`: Primary SQLite database, updated with CVEs (Optional).
+
+#For Installing ALL Dependencies
+**Command**
+```
+sudo apt update && sudo apt install -y \
+    file binutils xxd curl jq hashcat python3 \
+    libimage-exiftool-perl binwalk steghide pngcheck \
+    sox libsox-fmt-all ffmpeg imagemagick zbar-tools \
+    checksec ripgrep libcap2-bin foremos python3-pip \
+    git xclip bc outguess stegsnow
+```
+```
+sudo gem install zsteg
+```
+```
+pip3 install requests pillow python-registry pwntools ropper colorama
+```
