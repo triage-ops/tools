@@ -1,5 +1,3 @@
-#=== Shell Scripts ===
-
 # 1. Binary-Scout.sh — Binary Triage Automation
 **Purpose:** Rapid security analysis of ELF/PE binaries for CTF challenges and security auditing.
 
@@ -32,6 +30,10 @@
     *   **Capabilities:** Runs `getcap`. Flags dangerous `CAP_SETUID`, `CAP_DAC_OVERRIDE`, `CAP_NET_RAW`.
     *   **RPATH Hijacking:** Checks `readelf -d` for relative `RPATH`/`RUNPATH`.
 
+**Installation Command:**
+```bash
+sudo apt install -y file binutils vim-common checksec ripgrep libcap2-bin
+```
 ---
 
 # 2. Hash-Detector.sh — Hash ID & Online Cracking
@@ -55,6 +57,10 @@
     *   Maps length (32, 40, 48, 56, 64, 96, 128) to algorithms (MD5/NTLM, SHA1, SHA256, etc.).
     *   **Hashcat Integration:** Provides specific `hashcat -m <mode>` commands for local cracking.
 
+**Installation Command:**
+```bash
+sudo apt install -y curl jq hashcat
+```
 ---
 
 # 3. Header-Fix.sh — File Forensics & Auto-Repair
@@ -78,6 +84,10 @@
     *   **Force-Repairs:** Overwrites first N bytes with correct magic bytes.
     *   **PNG-Specific:** Recalculates `IHDR` chunk CRC using Python `binascii.crc32`.
 
+**Installation Command:**
+```bash
+sudo apt install -y vim-common file bc python3
+```
 ---
 
 # 4. Stego-Hunt.sh — Steganography Suite
@@ -95,6 +105,14 @@
 *   **Barcode/QR** (Lines 334–348): Scans images with `zbarimg` for embedded codes/flags.
 *   **Brute Force** (Lines 397–424): Iterates provided wordlist against `steghide` (JPEG only). Shows progress every 1000 attempts.
 
+**Installation Command:**
+```bash
+sudo apt install -y libimage-exiftool-perl binwalk steghide pngcheck \
+    sox libsox-fmt-all ffmpeg outguess stegsnow zbar-tools rubygems
+```
+```
+sudo gem install zsteg
+```
 ---
 
 # 5. Ultra_Analyzer.sh — Universal Decoder
@@ -118,6 +136,10 @@
     *   **GPS:** Regex for coordinates -> Google Maps link.
     *   **Freelquency Analysis:** `awk`-based letter frequency count to detect substitution ciphers.
 
+**Installation Command:**
+```bash
+sudo apt install -y vim-common hashcat zbar-tools python3 perl
+```
 ---
 
 #=== Python Scripts ===
@@ -138,6 +160,13 @@
     *   **Carving:** Runs `foremost`.
     *   **Threads:** Uses `ThreadPoolExecutor` (4 workers) for parallel Flag Search, String Extraction, EXIF, and Stego checks.
 
+**Installation Command:**
+```bash
+sudo apt install -y python3-pillow python3-requests foremost libimage-exiftool-perl
+```
+```
+pip3 install volatility3
+```
 ---
 
 # 7. Registry-Hunter.py — Registry Forensics
@@ -158,6 +187,10 @@
 *   **SAM:** Lists User Accounts.
 *   **Timeline:** Extracts modification timestamps from all keys. Sorts top 50 chronological events. Supports `--json`.
 
+**Installation Command:**
+```
+pip3 install python-registry
+```
 ---
 
 # 8. Reverse-Engineer.py — Binary Exploitation Helper
@@ -180,6 +213,13 @@
     *   **ROP:** Searches gadgets (`pop rdi`, `ret`) via `ROPgadget`/`ropper`.
     *   **Template:** Generates `exploit_<name>.py` using `pwntools`. Pre-fills architecture, offset, win function address, and payload skeleton.
 
+**Installation Command:**
+```bash
+sudo apt install -y binutils
+```
+```
+pip3 install pwntools ropper
+```
 ---
 
 # 9. Shell-Forger.py — Reverse Shell Generator
@@ -193,6 +233,10 @@
 *   **Listener (`listen`):** Raw socket implementation of Netcat. Handles connection + I/O threads.
 *   **Obfuscation:** Basic variable randomization support.
 
+**Installation Command:**
+```bash
+sudo apt install -y xclip python3
+```
 ---
 
 # 10. search_db.py — Exploit-DB Search
@@ -209,6 +253,10 @@
 *   **Filters:** `--version` (supports range `< 2.4`), `--verified`.
 *   **Output:** Color-coded by lethality (Red/Yellow/Cyan).
 
+**Installation Command:**
+```bash
+pip3 install requests colorama
+```
 ---
 
 # 11. update_db.py — DB Sync & Enrich
@@ -223,6 +271,13 @@
     *   **Enrichment:** Queries NVD API for CVSS scores (every 10th exploit).
 *   **Schema:** SQLite table `exploits` with indices on `cvss_score`, `type`, `cve_id`.
 
+**Installation Command:**
+```bash
+sudo apt install -y git
+```
+```
+pip3 install requests
+```
 ---
 
 #=== Supporting Files ===
